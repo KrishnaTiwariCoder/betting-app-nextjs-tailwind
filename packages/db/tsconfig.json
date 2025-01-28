@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "composite": true, // Required for monorepos
+    "declaration": true, // Generate type declarations
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "skipLibCheck": true, // Avoid checking type conflicts in node_modules
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "outDir": "./dist", // Output folder for compiled files and types
+    "rootDir": "./src", // Root folder of the source code
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": ["./src"],
+  "exclude": ["node_modules", "./dist"]
+}

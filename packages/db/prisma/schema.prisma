@@ -1,0 +1,56 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL") // Replace with your MongoDB connection string
+}
+
+// Enum for user roles
+enum Role {
+  admin
+  user
+  superAdmin
+}
+
+// User model
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  username  String
+  email     String   @unique
+  phone     String?  @unique
+  password  String
+  avatar    String?
+  role      Role     @default(user)
+  
+  walletId  String?    @unique @db.ObjectId
+  wallet    Wallet?    @relation(fields: [walletId], references: [id])
+}
+// Wallet model
+model Wallet {
+  id            String        @id @default(auto()) @map("_id") @db.ObjectId
+  balance       Float         @default(0)
+  user          User?
+  transactions  Transaction[] @relation("WalletTransactions")
+  userId        String        @db.ObjectId
+}
+
+// Transaction model
+model Transaction {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  amount    Float
+  date      DateTime @default(now())
+  walletId  String   @db.ObjectId
+  
+  wallet    Wallet   @relation("WalletTransactions", fields: [walletId], references: [id])
+}
+
+// Game model
+model Game {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  api       String
+}
