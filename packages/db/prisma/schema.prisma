@@ -25,9 +25,10 @@ model User {
   password  String
   avatar    String?
   role      Role     @default(user)
-  
+  verified  Boolean  @default(false)
   walletId  String?    @unique @db.ObjectId
   wallet    Wallet?    @relation(fields: [walletId], references: [id])
+  bets      Bet[]     
 }
 // Wallet model
 model Wallet {
@@ -53,4 +54,25 @@ model Game {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   api       String
+  bets      Bet[]
+}
+
+enum BetStatus {
+  PENDING
+  WON
+  LOST
+}
+
+// Bet model
+model Bet {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  user       User       @relation(fields: [userId], references: [id])
+  userId     String     @db.ObjectId
+  game       Game?      @relation(fields: [gameId], references: [id])
+  gameId     String?    @db.ObjectId
+  amount     Float
+  createdAt  DateTime   @default(now())
+  status     BetStatus  @default(PENDING)
+  // Optional: If you want to record the outcome (e.g., winnings), you can add:
+  outcome    Float?     // This could represent the amount won (or negative for losses)
 }

@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import { verifyToken } from "../services/auth";
 import prisma from "@repo/db";
+import { verifyToken } from "../utils/jwt";
+
 export const authenticate = (
   req: Request,
   res: Response,
