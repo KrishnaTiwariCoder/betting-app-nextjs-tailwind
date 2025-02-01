@@ -1,10 +1,11 @@
 import { useRouter } from "next/navigation";
+import { MainContent } from "./MainContent";
 
 const Sidebar = () => {
   const router = useRouter();
 
   const pages = [
-    { name: "All Live", path: "/alllive", imagePath: "Vector.png" },
+    { name: "All Live", path: "/login", imagePath: "Vector.png" },
     { name: "Favorites", path: "/favorites", imagePath: "Vector.png" },
     { name: "Top Parleys", path: "/topparleys", imagePath: "Vector.png" },
     { name: "promotions", path: "/promotions", imagePath: "Vector.png" },
@@ -20,6 +21,7 @@ const Sidebar = () => {
           <div
             key={page.path}  // Added key prop here
             className="flex items-center gap-x-2 px-5 py-3 hover:bg-cyan-950 rounded-2xl"
+            onClick={()=> router.push(page.path)}
           >
             <img src={page.imagePath} alt={page.name} />
             <div>{page.name}</div>
@@ -30,18 +32,8 @@ const Sidebar = () => {
   );
 };
 
-const MainContent = () => {
-  return (
-    <div className="max-h-auto flex-1 p-6 text-white">
-      <h2 className="text-2xl font-semibold">Main Content Area</h2>
-      <p className="mt-4">
-        This is where your main content goes. It is placed to the right of the sidebar.
-      </p>
-    </div>
-  );
-};
 
-const Layout = () => {
+const SidebarAndMainContent = () => {
   return (
     <div className="flex h-screen bg-black">
       <Sidebar />
@@ -50,4 +42,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default SidebarAndMainContent;
