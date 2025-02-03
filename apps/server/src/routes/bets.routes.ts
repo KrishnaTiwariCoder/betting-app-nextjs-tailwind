@@ -19,12 +19,6 @@ router.get("/api/bets/:id", (req: Request, res: Response) => {
   res.send(`Get bet with id ${betId}`);
 });
 
-router.put("/api/bets/:id", (req: Request, res: Response) => {
-  // Endpoint to update a bet by its id (e.g. to update bet status)
-  const betId = req.params.id;
-  res.send(`Update bet with id ${betId}`);
-});
-
 router.delete("/api/bets/:id", (req: Request, res: Response) => {
   // Endpoint to delete a bet by its id
   const betId = req.params.id;

@@ -1,7 +1,7 @@
-import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import prisma from "@repo/db";
+
 import { verifyToken } from "../utils/jwt";
+import { getUserById } from "../services/userService";
 
 export const authenticate = (
   req: Request,
@@ -50,9 +50,7 @@ export const accountExists = async (
   res: Response,
   next: NextFunction
 ) => {
-  const userfound = await prisma.user.findUnique({
-    where: { id: req.user.id },
-  });
+  const userfound = await getUserById(req.user.id);
   if (!userfound) {
     res.status(403).json({ error: "account does not exist now" });
     res;
