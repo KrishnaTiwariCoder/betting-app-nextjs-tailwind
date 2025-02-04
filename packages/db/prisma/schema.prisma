@@ -30,6 +30,7 @@ model User {
   wallet    Wallet?    @relation(fields: [walletId], references: [id])
   bets      Bet[]     
 }
+
 // Wallet model
 model Wallet {
   id            String        @id @default(auto()) @map("_id") @db.ObjectId

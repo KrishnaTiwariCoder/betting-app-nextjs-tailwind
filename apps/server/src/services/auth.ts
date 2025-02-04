@@ -1,7 +1,12 @@
 import prisma from "@repo/db";
 import { comparePassword, hashPassword } from "../utils/bcrypt";
 import { generateToken } from "../utils/jwt";
-import { createUserInDB, getUserById, updateUserById } from "./userService";
+import {
+  createUserInDB,
+  getUserById,
+  updatePhoneOrEmail,
+  updateUserById,
+} from "./userService";
 
 export const register = async (data: {
   username: string;
@@ -48,7 +53,11 @@ export const profile = async (id: string) => {
 };
 
 export const update = async (id: string, data: any) => {
-  const user = await updateUserById(id, data);
-
-  return user;
+  if (data.phone || data.email) {
+    const user = await updatePhoneOrEmail(id, data);
+    return user;
+  } else {
+    const user = await updateUserById(id, data);
+    return user;
+  }
 };

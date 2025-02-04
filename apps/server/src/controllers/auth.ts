@@ -31,7 +31,7 @@ export const profile = async (req: Request, res: Response) => {
 
 export const update = async (req: Request, res: Response) => {
   try {
-    const user = await authService.update(req.user.id, req.body);
+    const user = await authService.update(req.user.id, req.body.data);
     res.json(user);
   } catch (err: any) {
     res.status(401).json({ error: err.message });

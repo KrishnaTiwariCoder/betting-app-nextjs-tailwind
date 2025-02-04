@@ -18,3 +18,15 @@ export const updateUserById = async (id: string, data: any) => {
     data,
   });
 };
+
+export const updatePhoneOrEmail = async (id: string, data: any) => {
+  const dataToUpdate: any = {
+    ...data,
+    verified: false,
+    updatedAt: new Date(),
+  };
+  return await prisma.user.update({
+    where: { id },
+    data: dataToUpdate,
+  });
+};

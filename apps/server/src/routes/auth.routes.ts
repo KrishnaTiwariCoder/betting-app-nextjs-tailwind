@@ -1,12 +1,14 @@
 import express, { Router } from "express";
 import { accountExists, authenticate } from "../middlewares/index";
 import { login, profile, register, update } from "../controllers/auth";
+import { validateData } from "../middlewares/errorMiddleware";
+import { loginSchema, registerSchema } from "../utils/logger";
 
 const router: Router = express.Router();
 
-router.post("/register", register);
+router.post("/register", validateData(registerSchema), register);
 
-router.post("/login", login);
+router.post("/login", validateData(loginSchema), login);
 
 router.get("/profile", authenticate, profile);
 
