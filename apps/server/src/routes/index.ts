@@ -8,8 +8,8 @@ import { authenticate } from "../middlewares";
 const router = express.Router();
 
 router.use("/auth", auth);
-router.use("/bets", authenticate, bet);
 router.use("/events", authenticate, events);
+router.use("/bets", authenticate, bet);
 router.use("/casino", authenticate, casino);
 router.use("/instant-games", authenticate, instant);
 
