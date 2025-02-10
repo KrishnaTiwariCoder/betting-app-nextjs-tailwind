@@ -4,8 +4,4 @@
     ::-webkit-scrollbar {
       display: none;
     }
-  
-    html, body {
-      overflow: hidden; /* This will hide the scrollbar entirely */
-    }
 }
