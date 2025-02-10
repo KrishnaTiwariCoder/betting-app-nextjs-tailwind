@@ -1,26 +1,25 @@
 
 
-
 export default function Topbar(){
     return <div className="bg-black flex justify-evenly text-white py-6 border-b-1">
         <div className="text-3xl text-amber-400">
             LOGO
         </div>
-        <div className="flex justify-center items-center gap-x-14 bg-black text-white py-2">
+        <div className="flex justify-center items-center gap-x-14 bg-black text-white py-2 text-sm">
             <div className="flex items-center gap-x-2">
-                <img src="Vector.png" alt="Live Events" />
+                <img src="LiveEvents.png" alt="Live Events" />
                 <div>Live Events</div>
             </div>
             <div className="flex items-center gap-x-2">
-                <img src="Vector.png" alt="Upcoming Events" />
+                <img src="upcomingEvents.png" alt="Upcoming Events" />
                 <div>Upcoming Events</div>
             </div>
             <div className="flex items-center gap-x-2">
-                <img src="Vector.png" alt="Promotions" />
+                <img src="promotions.png" alt="Promotions" />
                 <div>Promotions</div>
             </div>
             <div className="flex items-center gap-x-2">
-                <img src="Vector.png" alt="Instant Games" />
+                <img src="instantGames.png" alt="Instant Games" />
                 <div>Instant Games</div>
             </div>
         </div>
