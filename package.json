@@ -22,6 +22,8 @@
     "packages/*"
   ],
   "dependencies": {
-    "lucide-react": "^0.475.0"
+    "crypto": "^1.0.1",
+    "lucide-react": "^0.475.0",
+    "prisma": "^6.3.1"
   }
 }
