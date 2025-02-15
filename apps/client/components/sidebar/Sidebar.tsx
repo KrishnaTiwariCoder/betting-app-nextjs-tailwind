@@ -58,7 +58,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-screen hidden overflow-y-auto text-white md:flex lg:flex flex-col p-8 border-r-1">
+    <div className="h-screen hidden overflow-y-auto text-white md:flex lg:flex flex-col p-8 border-r border-gray-800">
       <nav className="space-y-1">
         {pages.map((page) => (
           <div
