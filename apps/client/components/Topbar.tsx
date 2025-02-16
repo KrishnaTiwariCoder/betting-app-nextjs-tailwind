@@ -129,6 +129,8 @@
 //     );
 // }
 
+
+
 "use client";
 
 import { CastIcon, Home, Menu, ShipWheel, User2 } from "lucide-react";
@@ -141,16 +143,17 @@ export default function Topbar() {
   return (
     <>
       {/* Desktop Topbar - Stays at Top */}
-      <div className="md:flex flex lg:flex bg-black justify-between items-center px-4 py-4 border-b border-gray-800 text-white">
-
+      <div className="md:flex flex lg:flex bg-black justify-between items-center px-4 py-4 border-b border-gray-800 text-white z-0">
         {/* Center - Logo */}
-        <Link
-          href="/"
-          className="text-2xl md:text-3xl text-amber-400 cursor-pointer flex md:mx-11"
-        >
-          <Menu className="text-white w-6 h-6 mt-1 mr-2 ld:hidden" />
-          LOGO
-        </Link>
+        <div className="flex items-center">
+          <Menu className="text-white " />
+          <Link
+            href="/"
+            className="text-2xl md:text-3xl text-amber-400 cursor-pointer flex md:mx-11"
+          >
+            LOGO
+          </Link>
+        </div>
 
         {/* Navigation Links */}
         <div className="hidden md:pl-[470px] lg:pl-0 md:flex md:overflow-auto lg:flex justify-center items-center gap-x-10 text-sm whitespace-nowrap">
@@ -248,13 +251,12 @@ export default function Topbar() {
       </div>
 
       {/* Mobile Bottom Navbar */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full bg-black flex justify-around items-center py-3 border-t border-gray-800">
+      <div className="md:hidden fixed bottom-0 left-0 w-full bg-black flex justify-around items-center py-3 border-t border-gray-800 z-50">
         {/* Navigation Icons */}
         <Link
           href="/"
           className="flex flex-col items-center gap-x-2 hover:text-amber-400"
         >
-          {/* <img src="/LiveEvents.png" alt="Live Events" className="w-5 h-5" /> */}
           <h1 className="text-white">
             <Home />
           </h1>
@@ -278,7 +280,6 @@ export default function Topbar() {
           href="/casino"
           className="flex flex-col items-center text-white hover:text-amber-400"
         >
-          {/* <img src="/casino.png" alt="Casino" className="w-5 h-5" /> */}
           <h1 className="text-white">
             <ShipWheel />
           </h1>
@@ -288,7 +289,6 @@ export default function Topbar() {
           href="/profile"
           className="flex flex-col items-center text-white hover:text-amber-400"
         >
-          {/* <img src="/profile.png" alt="Profile" className="w-5 h-5" /> */}
           <h1 className="text-white">
             <User2 />
           </h1>
@@ -305,7 +305,7 @@ export default function Topbar() {
 
       {/* Mobile Dropdown Menu (Opens on Menu Click) */}
       {isMenuOpen && (
-        <div className="absolute bottom-16 left-0 w-full bg-black text-white flex flex-col p-4 space-y-4">
+        <div className="fixed bottom-16 left-0 w-full bg-black text-white flex flex-col p-4 space-y-4 z-40">
           <Link
             href="/live-events"
             className="flex items-center gap-x-2 hover:text-amber-400"
@@ -330,6 +330,28 @@ export default function Topbar() {
           >
             <img src="/promotions.png" alt="Promotions" className="w-5 h-5" />
             <span>Promotions</span>
+          </Link>
+          <Link
+            href="/instant-games"
+            className="flex items-center gap-x-2 hover:text-amber-400"
+          >
+            <img
+              src="/instantGames.png"
+              alt="Instant Games"
+              className="w-5 h-5"
+            />
+            <span>Instant Games</span>
+          </Link>
+          <Link
+            href="/instant-games"
+            className="flex items-center gap-x-2 hover:text-amber-400"
+          >
+            <img
+              src="/instantGames.png"
+              alt="Instant Games"
+              className="w-5 h-5"
+            />
+            <span>Instant Games</span>
           </Link>
           <Link
             href="/instant-games"

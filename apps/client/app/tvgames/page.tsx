@@ -38,7 +38,7 @@ export function TvGamesSidebar() {
   };
 
   return (
-    <div className="h-screen hidden overflow-y-auto text-white md:flex lg:flex flex-col border-r border-gray-800">
+    <div className="h-screen hidden overflow-y-auto text-white md:hidden lg:flex flex-col border-r border-gray-800">
       <div className="flex cursor-pointer gap-3 hover:bg-gray-800 p-3 rounded-2xl m-6 ">
         <Home size={24} />
         <div className="text-xl">Lobby</div>
@@ -84,11 +84,9 @@ export function TvGamesSearchBar(){
 }
 
 
-
-
-function InstantGamesContent({gameName}: {gameName: string}) {
+function InstantGamesContent({ gameName }: { gameName: string }) {
   return (
-    <div className="bg-black p-3 pt-10 w-full ml-auto">
+    <div className="bg-black p-3 pt-10 w-full ml-auto relative pb-20"> {/* Added pb-20 */}
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center space-x-2">
           <span className="text-white text-lg text-center items-center font-semibold">{gameName}</span>
